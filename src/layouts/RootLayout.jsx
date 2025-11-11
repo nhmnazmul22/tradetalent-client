@@ -1,3 +1,5 @@
+import Navbar from "@/components/Navbar/Navbar";
+import TopBar from "@/components/Navbar/TopBar";
 import React from "react";
 import { Outlet } from "react-router";
 
@@ -5,8 +7,8 @@ const RootLayout = () => {
   return (
     <>
       <header>
-        <div>top navbar</div>
-        <div>Navbar</div>
+        <TopBar></TopBar>
+        <Navbar></Navbar>
       </header>
       <main>
         <Outlet></Outlet>
