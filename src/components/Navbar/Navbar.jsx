@@ -14,6 +14,7 @@ const Navbar = () => {
           </div>
           <div className="flex gap-2 items-center">
             <Button variant="outline">Login</Button>
+
             <Button>Register</Button>
           </div>
         </div>

@@ -6,10 +6,10 @@ import ToggleTheme from "../Theme/ToggleTheme";
 
 const TopBar = () => {
   return (
-    <section className="bg-linear py-2 fixed top-0 w-full z-999">
+    <section className="bg-black dark:bg-white py-2 fixed top-0 w-full z-999">
       <div className="main-container">
         <div className="flex justify-between items-center">
-          <div className="flex items-center gap-2 text-white">
+          <div className="flex items-center gap-2 text-white dark:text-black">
             <motion.span
               animate={{ rotate: [0, -20, 20, -15, 15, -10, 10, 0] }}
               transition={{ duration: 0.8, repeat: Infinity, repeatDelay: 2 }}
@@ -22,7 +22,7 @@ const TopBar = () => {
             </Link>
           </div>
           <div className="flex gap-5 items-center">
-            <div className="flex items-center gap-2 text-white">
+            <div className="flex items-center gap-2 text-white dark:text-black">
               <span>
                 <Mail size={18} />
               </span>
@@ -33,7 +33,7 @@ const TopBar = () => {
                 tradetalent@support.com
               </Link>
             </div>
-            <div className="flex items-center gap-2 text-white">
+            <div className="flex items-center gap-2 text-white dark:text-black">
               <span>
                 <Phone size={18} />
               </span>
