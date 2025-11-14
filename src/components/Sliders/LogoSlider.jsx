@@ -19,7 +19,7 @@ const LogoSlider = () => {
         >
           {[...companyLogos, ...companyLogos].map((logo, index) => (
             <figure
-              key={index}
+              key={`${logo.alt}-${index}`}
               className="min-w-[180px] opacity-70 hover:opacity-100 transition"
             >
               <img src={logo.logo} alt={logo.alt} className="w-full h-auto" />
