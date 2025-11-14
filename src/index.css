@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-display: "Inter", sans-serif;
-  --font-secondary: "Poppins", sans-serif;
+  --font-display: "Poppins", sans-serif;
+  --font-secondary: "Inter", sans-serif;
 }
 
 @theme inline {

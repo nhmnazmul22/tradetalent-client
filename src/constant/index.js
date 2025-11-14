@@ -11,8 +11,12 @@ import {
   PenSquare,
   Phone,
   Smartphone,
-  Video,
 } from "lucide-react";
+import AbbottLogo from "@/assets/company-logos/abbott.svg";
+import NetflixLogo from "@/assets/company-logos/netflix.svg";
+import PaypalLogo from "@/assets/company-logos/paypal.svg";
+import ToyotaLogo from "@/assets/company-logos/toyota.svg";
+import VisaLogo from "@/assets/company-logos/visa.svg";
 
 export const menuItems = [
   { label: "Home", href: "/", icon: Home },
@@ -162,7 +166,6 @@ export const menuItems = [
   { label: "About Us", href: "/about", icon: Info },
   { label: "Contact", href: "/contact", icon: Phone },
 ];
-
 export const userMenu = [
   { label: "Dashboard", href: "/dashboard" },
   { label: "My Profile", href: "/profile" },
@@ -172,4 +175,27 @@ export const userMenu = [
   { label: "Notifications", href: "/notifications" },
   { label: "Settings", href: "/settings" },
   { label: "Logout", href: "/logout" },
+];
+
+export const companyLogos = [
+  {
+    alt: "AbbottLogo",
+    logo: AbbottLogo,
+  },
+  {
+    alt: "NetflixLogo",
+    logo: NetflixLogo,
+  },
+  {
+    alt: "PaypalLogo",
+    logo: PaypalLogo,
+  },
+  {
+    alt: "ToyotaLogo",
+    logo: ToyotaLogo,
+  },
+  {
+    alt: "VisaLogo",
+    logo: VisaLogo,
+  },
 ];
