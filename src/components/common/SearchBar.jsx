@@ -18,7 +18,7 @@ const SearchBar = () => {
     <div className="flex items-center">
       <div className="flex items-center max-w-[600px] h-[60px] w-full bg-white rounded-md rounded-r-none p-1">
         <Select>
-          <SelectTrigger className="w-[180px] rounded-r-none h-full border-0 text-base">
+          <SelectTrigger className="w-[180px] rounded-r-none h-full border-0 text-black focus-visible:ring-0 focus-visible:border-0 ">
             <SelectValue placeholder="Select a keyword" />
           </SelectTrigger>
           <SelectContent>
@@ -34,7 +34,7 @@ const SearchBar = () => {
         </Select>
         <Separator orientation="vertical"></Separator>
         <Input
-          className="text-base placeholder:text-base rounded-l-none h-full border-0 shadow-none focus-visible:ring-0 focus-visible:border-0 "
+          className="text-black placeholder:text-base rounded-l-none h-full border-0 shadow-none focus-visible:ring-0 focus-visible:border-0 "
           placeholder="Search for jobs, categories, or keywords..."
         ></Input>
       </div>
