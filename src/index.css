@@ -121,12 +121,24 @@
     @apply border-border outline-ring/50 font-display;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background dark:bg-black text-foreground;
   }
   .main-container {
     @apply max-w-[1480px] px-3! md:px-5! mx-auto;
   }
   .bg-linear {
-    @apply bg-linear-to-br from-indigo-600 to-indigo-500;
+    @apply bg-linear-to-br from-emerald-600 to-green-500;
+  }
+  .active {
+    @apply bg-green-500 text-white;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
