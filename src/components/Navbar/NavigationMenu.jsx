@@ -1,6 +1,4 @@
 import * as React from "react";
-import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react";
-
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -13,7 +11,6 @@ import {
 import { Link } from "react-router";
 import { menuItems } from "@/constant";
 import ListItem from "./ListItem";
-import LucideIcon from "../common/LucideIcon";
 
 function Navigation() {
   return (
@@ -24,13 +21,7 @@ function Navigation() {
             return (
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="flex gap-2 items-center">
-                  <span>
-                    <LucideIcon
-                      name={item.icon}
-                      className="text-gray-600 w-5 h-5"
-                    ></LucideIcon>
-                  </span>
-                  <span>{item.label}</span>
+                  {item.label}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid gap-2 sm:w-[400px] md:w-[500px] md:grid-cols-3 lg:w-[800px]">
@@ -57,13 +48,7 @@ function Navigation() {
                   to={item.label}
                   className="flex flex-row gap-2 items-center"
                 >
-                  <span>
-                    <LucideIcon
-                      name={item.icon}
-                      className="text-gray-600 w-6 h-6"
-                    ></LucideIcon>
-                  </span>
-                  <span>{item.label}</span>
+                  {item.label}
                 </Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
