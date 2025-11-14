@@ -48,7 +48,7 @@ function AppSidebar() {
                       <SidebarMenuItem>
                         <SidebarMenuButton
                           asChild
-                          className="hover:bg-green-500 hover:text-white"
+                          className="hover:bg-blue-500 hover:text-white"
                         >
                           <CollapsibleTrigger className="flex items-center w-full ">
                             <div className="flex gap-2 items-center">
@@ -68,11 +68,10 @@ function AppSidebar() {
                               defaultOpen={false}
                               className="ml-4 "
                             >
-                              {/* ---------------- Child Category ---------------- */}
                               <SidebarMenuItem>
                                 <SidebarMenuButton
                                   asChild
-                                  className="hover:bg-green-500 hover:text-white"
+                                  className="hover:bg-blue-500 hover:text-white"
                                 >
                                   <CollapsibleTrigger className="flex items-center gap- w-full">
                                     <div className="flex items-center gap-2">
@@ -92,7 +91,7 @@ function AppSidebar() {
                                     <SidebarMenuItem key={subItem.label}>
                                       <SidebarMenuButton
                                         asChild
-                                        className="hover:bg-green-500 hover:text-white"
+                                        className="hover:bg-blue-500 hover:text-white"
                                       >
                                         <Link to={subItem.href}>
                                           <span className="text-sm">
@@ -116,7 +115,7 @@ function AppSidebar() {
                   <SidebarMenuItem key={item.label}>
                     <SidebarMenuButton
                       asChild
-                      className="hover:bg-green-500 hover:text-white"
+                      className="hover:bg-blue-500 hover:text-white"
                     >
                       <NavLink
                         to={item.href}

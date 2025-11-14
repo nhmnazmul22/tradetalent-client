@@ -10,7 +10,7 @@ const Logo_v2 = () => {
 
       <div className="leading-tight">
         <h2 className="text-lg font-bold">
-          Trade<span className="italic text-green-600">Talent</span>
+          Trade<span className="italic text-blue-600">Talent</span>
         </h2>
         <span className="text-xs opacity-70 italic">
           Empowering Digital Skills

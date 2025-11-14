@@ -16,9 +16,9 @@ import { Separator } from "@/components/ui/separator";
 const SearchBar = () => {
   return (
     <div className="flex items-center">
-      <div className="flex items-center max-w-[600px] h-[60px] w-full bg-white rounded-md rounded-r-none p-1">
+      <div className="flex items-center max-w-[600px] h-[60px] w-full bg-white rounded-md rounded-r-none p-1 border border-gray-200">
         <Select>
-          <SelectTrigger className="w-[180px] rounded-r-none h-full border-0 text-black focus-visible:ring-0 focus-visible:border-0 ">
+          <SelectTrigger className="w-[150px] rounded-r-none h-full border-0 text-black shadow-none focus-visible:ring-0 focus-visible:border-0 ">
             <SelectValue placeholder="Select a keyword" />
           </SelectTrigger>
           <SelectContent>
@@ -38,8 +38,8 @@ const SearchBar = () => {
           placeholder="Search for jobs, categories, or keywords..."
         ></Input>
       </div>
-      <Button className="h-[60px] rounded-l-none">
-        <Search size={28}></Search>
+      <Button className="h-[60px] rounded-l-none w-[70px]! p-0">
+        <Search size={24}></Search>
       </Button>
     </div>
   );

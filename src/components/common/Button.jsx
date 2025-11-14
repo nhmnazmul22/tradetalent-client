@@ -6,9 +6,9 @@ const Button = ({ children, variant = "default", className, ...props }) => {
 
   const variants = {
     default:
-      "bg-green-600 text-white shadow hover:bg-green-600/90 hover:ring-2 hover:ring-green-600 hover:ring-offset-2",
+      "bg-blue-600 text-white shadow hover:bg-blue-600/90 hover:ring-2 hover:ring-blue-600 hover:ring-offset-2",
     outline:
-      "border border-green-600 text-green-600 dark:text-white bg-transparent hover:bg-green-600 hover:text-white hover:ring-2 hover:ring-green-600 hover:ring-offset-2",
+      "border border-blue-600 text-blue-600 dark:text-white bg-transparent hover:bg-blue-600 hover:text-white hover:ring-2 hover:ring-blue-600 hover:ring-offset-2",
     ghost:
       "bg-transparent text-black hover:bg-black/10 dark:text-white dark:hover:bg-white/10 hover:ring-0",
   };
