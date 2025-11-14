@@ -19,7 +19,7 @@ const ListItem = ({ label, subItems, icon, ...props }) => {
               <Link
                 to={item.href}
                 key={`${item}-${index}`}
-                className="text-muted-foreground line-clamp-2 text-sm leading-snug hover:underline hover:text-indigo-500"
+                className="text-muted-foreground line-clamp-2 text-sm leading-snug hover:underline hover:text-green-600"
               >
                 {item.label}
               </Link>
