@@ -15,17 +15,10 @@ const SectionHeading = ({ title, subtitle }) => {
         initial="start"
         whileInView="end"
         viewport={{ once: true }}
-        className="text-4xl sm:text-5xl font-bold"
+        className="text-3xl sm:text-4xl font-semibold"
       >
         {title}
       </motion.h3>
-      <motion.div
-        variants={fadeInUp}
-        initial="start"
-        whileInView="end"
-        viewport={{ once: true }}
-        className="h-1 rounded-lg bg-linear-to-r from-blue-500 to-blue-400 mx-auto w-[200px]"
-      ></motion.div>
       <motion.p
         variants={fadeInUp}
         initial="start"
