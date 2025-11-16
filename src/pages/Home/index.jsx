@@ -3,10 +3,14 @@ import SectionHeading from "@/components/common/SectionHeading";
 import BannerCTA from "@/components/CTA/BannerCTA";
 import Hero from "@/components/Hero/Hero";
 import Sellers from "@/components/Sellers/Sellers";
+import Services from "@/components/Services/Services";
 import LogoSlider from "@/components/Sliders/LogoSlider";
 import ServicesSlider from "@/components/Sliders/ServicesSlider";
 import React from "react";
 import { Link } from "react-router";
+import { motion } from "motion/react";
+import Testimonial from "@/components/Testimonial/Testimonial";
+import Blogs from "@/components/Blogs/Blogs";
 
 const HomePage = () => {
   return (
@@ -17,7 +21,7 @@ const HomePage = () => {
           <LogoSlider></LogoSlider>
         </div>
       </Section>
-      <Section className="bg-blue-50  dark:bg-black">
+      <Section className="bg-gray-50  dark:bg-neutral-900">
         <div className="main-container">
           <div className="">
             <SectionHeading
@@ -49,9 +53,58 @@ const HomePage = () => {
         </div>
       </Section>
       <Section className="relative">
-        <div className="absolute top-0 left-0 bg-blue-50  dark:bg-black bg w-full h-full -z-1 -skew-3"></div>
+        <div className="absolute top-0 left-0 bg-gray-50 dark:bg-neutral-900 bg w-full h-full -z-1 -skew-3"></div>
         <div className="main-container">
           <BannerCTA></BannerCTA>
+        </div>
+      </Section>
+      <Section>
+        <div className="main-container">
+          <div>
+            <SectionHeading
+              title="Latest Services"
+              subtitle="Explore the best services that suit you"
+            ></SectionHeading>
+            <div className="mt-10">
+              <Services></Services>
+            </div>
+            <div className="mt-10 text-center">
+              <Link
+                to="/"
+                className="underline hover:text-blue-500 transition-all duration-300 "
+              >
+                View All Services
+              </Link>
+            </div>
+          </div>
+        </div>
+      </Section>
+      <Section className="bg-gray-50  dark:bg-neutral-900">
+        <div className="main-container">
+          <SectionHeading
+            title="What Users Say About Us"
+            subtitle="Hear experiences from people who trust our platform."
+          />
+          <Testimonial />
+        </div>
+      </Section>
+      <Section>
+        <div className="main-container">
+          <SectionHeading
+            title="Latest Blogs"
+            subtitle="Get interesting insights, articles, and news"
+          />
+          <div className="mt-10">
+            <Blogs></Blogs>
+          </div>
+          <div className="mt-10 text-center">
+            <Link
+              to="/"
+              className="underline hover:text-blue-500 transition-all duration-300 "
+            >
+              View All Blogs
+            </Link>
+          </div>
         </div>
       </Section>
     </>
