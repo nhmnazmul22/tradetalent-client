@@ -3,6 +3,7 @@ import React from "react";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import AppSidebar from "@/components/Sidebar/AppSidebar";
 import { Outlet } from "react-router";
+import Footer from "@/components/Footer/Footer";
 
 const RootLayout = () => {
   return (
@@ -15,7 +16,7 @@ const RootLayout = () => {
         <Outlet></Outlet>
       </main>
       <footer>
-        <div>footer</div>
+        <Footer></Footer>
       </footer>
     </SidebarProvider>
   );
