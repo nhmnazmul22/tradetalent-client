@@ -3,7 +3,7 @@ import Avater from "@/assets/avater.png";
 import { Separator } from "../ui/separator";
 import { Link } from "react-router";
 
-const BlogsCard = () => {
+const BlogCard = () => {
   return (
     <div className="p-2">
       <figure className="w-full h-[300px] rounded-lg overflow-hidden">
@@ -30,4 +30,4 @@ const BlogsCard = () => {
   );
 };
 
-export default BlogsCard;
+export default BlogCard;

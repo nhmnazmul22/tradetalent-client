@@ -11,6 +11,8 @@ import {
   PenSquare,
   Phone,
   Smartphone,
+  ToolCase,
+  UserSquare,
 } from "lucide-react";
 import AbbottLogo from "@/assets/company-logos/abbott.svg";
 import NetflixLogo from "@/assets/company-logos/netflix.svg";
@@ -163,9 +165,9 @@ export const menuItems = [
       },
     ],
   },
+  { label: "Services", href: "/services", icon: ToolCase },
+  { label: "Sellers", href: "/sellers", icon: UserSquare },
   { label: "Pricing", href: "/pricing", icon: CreditCard },
-  { label: "About Us", href: "/about", icon: Info },
-  { label: "Contact", href: "/contact", icon: Phone },
 ];
 export const userMenu = [
   { label: "Dashboard", href: "/dashboard" },

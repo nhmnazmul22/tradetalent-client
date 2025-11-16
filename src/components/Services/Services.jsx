@@ -1,14 +1,21 @@
 import React from "react";
 import ServiceCard from "./ServiceCard";
-
+import { motion } from "motion/react";
+import { fadeInUp } from "@/lib/motionVariants";
 const Services = () => {
   return (
-    <div className="grid grid-cols-2 gap-5 items-center max-w-7xl mx-auto">
+    <motion.div
+      variants={fadeInUp}
+      initial="start"
+      whileInView="end"
+      viewport={{ once: true }}
+      className="grid lg:grid-cols-2 gap-y-5 sm:gap-5 items-center max-w-7xl mx-auto"
+    >
       <ServiceCard></ServiceCard>
       <ServiceCard></ServiceCard>
       <ServiceCard></ServiceCard>
       <ServiceCard></ServiceCard>
-    </div>
+    </motion.div>
   );
 };
 

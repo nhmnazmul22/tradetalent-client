@@ -13,8 +13,8 @@ import { Clock, Eye, Heart, ShoppingBasket, StarIcon } from "lucide-react";
 import { Separator } from "../ui/separator";
 const ServiceCard = () => {
   return (
-    <Card className="border p-0 flex flex-row group">
-      <figure className="max-w-[250px] rounded-l-xl overflow-hidden relative">
+    <Card className="border p-4 sm:p-0 flex flex-col sm:flex-row group">
+      <figure className="w-full sm:max-w-[220px] max-sm:h-[300px] rounded-xl sm:rounded-l-xl overflow-hidden relative">
         <img
           src={Avatar}
           alt=""
@@ -37,11 +37,11 @@ const ServiceCard = () => {
           </div>
         </CardHeader>
         <CardContent className="p-0 mt-2">
-          <h4 className="text-xl font-medium">
+          <h4 className="text-lg sm:text-xl font-medium">
             I will craft engaging social media marketing, copywriting
           </h4>
-          <div className="flex gap-2 items-center mt-3">
-            <p className="flex gap-2 items-center">
+          <div className="flex max-sm:flex-col gap-1 sm:items-center mt-3">
+            <p className="flex gap-1 items-center">
               <span>
                 <StarIcon
                   size={20}
@@ -52,9 +52,9 @@ const ServiceCard = () => {
             </p>
             <Separator
               orientation="vertical"
-              className="border-4 rounded-full border-gray-200 h-1"
+              className="border-4 rounded-full border-gray-200 h-1 max-sm:hidden"
             ></Separator>
-            <p className="flex gap-2 items-center not-dark:text-gray-700">
+            <p className="flex gap-1 items-center not-dark:text-gray-700">
               <span>
                 <ShoppingBasket size={20}></ShoppingBasket>
               </span>
@@ -62,9 +62,9 @@ const ServiceCard = () => {
             </p>
             <Separator
               orientation="vertical"
-              className="border-4 rounded-full border-gray-200 h-1"
+              className="border-4 rounded-full border-gray-200 h-1 max-sm:hidden"
             ></Separator>
-            <p className="flex gap-2 items-center not-dark:text-gray-700">
+            <p className="flex gap-1 items-center not-dark:text-gray-700">
               <span>
                 <Eye size={20}></Eye>
               </span>

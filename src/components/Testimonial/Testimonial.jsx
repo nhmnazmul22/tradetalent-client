@@ -50,7 +50,7 @@ const Testimonial = () => {
         </div>
       </div>
 
-      <div className="col-span-3 pl-6">
+      <div className="col-span-3 sm:pl-6">
         <motion.div
           key={activeIndex}
           initial={{ opacity: 0, x: 40 }}
@@ -64,7 +64,7 @@ const Testimonial = () => {
             "{testimonials[activeIndex].text}"
           </p>
 
-          <div className="flex items-center gap-4">
+          <div className="flex max-sm:flex-col items-center gap-4">
             <img
               src={testimonials[activeIndex].avatar}
               className="w-14 h-14 rounded-full object-cover"
@@ -79,7 +79,7 @@ const Testimonial = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between mt-4">
+          <div className="flex items-center justify-center  sm:justify-between mt-4">
             <div className="flex gap-3">
               <button
                 onClick={prev}
@@ -98,7 +98,7 @@ const Testimonial = () => {
               </button>
             </div>
 
-            <div className="h-0.5 bg-gray-300 dark:bg-gray-600 w-full ml-6"></div>
+            <div className="h-0.5 bg-gray-300 dark:bg-gray-600 w-full ml-6 max-sm:hidden"></div>
           </div>
         </motion.div>
       </div>

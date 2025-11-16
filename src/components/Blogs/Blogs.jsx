@@ -1,13 +1,12 @@
 import React from "react";
-import BlogsCard from "./BlogsCard";
+import BlogCard from "./BlogCard";
 
 const Blogs = () => {
   return (
-    <div className="grid grid-cols-4 gap-5">
-      <BlogsCard></BlogsCard>
-      <BlogsCard></BlogsCard>
-      <BlogsCard></BlogsCard>
-      <BlogsCard></BlogsCard>
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <BlogCard></BlogCard>
+      <BlogCard></BlogCard>
+      <BlogCard></BlogCard>
     </div>
   );
 };
