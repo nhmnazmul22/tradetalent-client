@@ -21,7 +21,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 
-import Logo_v2 from "../common/Logo_v2";
+import Logo from "../common/Logo";
 import { menuItems } from "@/constant";
 import { Link, NavLink } from "react-router";
 import { ChevronDown, ChevronUp, Settings } from "lucide-react";
@@ -31,7 +31,7 @@ function AppSidebar() {
   return (
     <Sidebar className="z-999 lg:hidden">
       <SidebarHeader>
-        <Logo_v2 />
+        <Logo />
       </SidebarHeader>
       <SidebarContent className="pt-2">
         <SidebarGroup>
