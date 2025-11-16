@@ -9,6 +9,7 @@ import {
   fadeInUp,
   staggerContainer,
 } from "@/lib/motionVariants";
+import { Link } from "react-router";
 
 const BannerCTA = () => {
   return (
@@ -89,7 +90,11 @@ const BannerCTA = () => {
           whileInView="end"
           viewport={{ once: true }}
         >
-          <Button className="mt-5 cursor-pointer w-fit">Become a Seller</Button>
+          <Link to="/auth/signup">
+            <Button className="mt-5 cursor-pointer w-fit">
+              Become a Seller
+            </Button>
+          </Link>
         </motion.div>
       </div>
     </motion.div>

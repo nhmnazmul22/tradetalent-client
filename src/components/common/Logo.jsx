@@ -1,7 +1,7 @@
 import { Laptop } from "lucide-react";
 import React from "react";
 
-const Logo_v2 = ({ logoTextColor }) => {
+const Logo = ({ logoTextColor }) => {
   return (
     <div className="flex items-center gap-2 text-black dark:text-white">
       <div className="bg-linear text-white p-2 rounded-lg flex items-center justify-center">
@@ -20,4 +20,4 @@ const Logo_v2 = ({ logoTextColor }) => {
   );
 };
 
-export default Logo_v2;
+export default Logo;

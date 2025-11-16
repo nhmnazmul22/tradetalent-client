@@ -4,6 +4,7 @@ import Logo from "../common/Logo";
 import Button from "../common/Button";
 import ToggleTheme from "../Theme/ToggleTheme";
 import { SidebarTrigger } from "../ui/sidebar";
+import { Link } from "react-router";
 
 const Navbar = () => {
   return (
@@ -17,8 +18,12 @@ const Navbar = () => {
           <div className="flex gap-3 items-center">
             <ToggleTheme></ToggleTheme>
             <div className="hidden lg:flex gap-2 items-center">
-              <Button variant="outline">Post a Job</Button>
-              <Button>Join as Freelancer</Button>
+              <Link>
+                <Button variant="outline">Post a Job</Button>
+              </Link>
+              <Link to="/auth/signup">
+                <Button>Join as Freelancer</Button>
+              </Link>
             </div>
             <div className="block lg:hidden">
               <SidebarTrigger></SidebarTrigger>
