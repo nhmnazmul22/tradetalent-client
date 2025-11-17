@@ -4,7 +4,9 @@ import Signup from "@/pages/Auth/Signup";
 import Signin from "@/pages/Auth/Signin";
 import HomePage from "@/pages/Home";
 import { createBrowserRouter, Navigate } from "react-router";
-import Services from "@/pages/Services";
+import ServicesPage from "@/pages/Services";
+import SellersPage from "@/pages/Sellers";
+import PricingPage from "@/pages/Pricing";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +19,15 @@ const router = createBrowserRouter([
       },
       {
         path: "services",
-        element: <Services></Services>,
+        element: <ServicesPage></ServicesPage>,
+      },
+      {
+        path: "sellers",
+        element: <SellersPage></SellersPage>,
+      },
+      {
+        path: "pricing",
+        element: <PricingPage></PricingPage>,
       },
     ],
   },
