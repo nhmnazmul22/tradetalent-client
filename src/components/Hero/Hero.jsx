@@ -1,8 +1,9 @@
 import React from "react";
-import SearchBar from "../common/SearchBar";
 import Button from "../common/Button";
 import { motion } from "motion/react";
 import { fadeInUp, staggerContainer } from "@/lib/motionVariants";
+import SearchFilter from "../Filters/SearchFilter";
+import { Link } from "react-router";
 
 const Hero = () => {
   return (
@@ -16,7 +17,7 @@ const Hero = () => {
             variants={staggerContainer}
             initial="start"
             animate="end"
-            className="max-w-[700px] w-full my-20"
+            className="max-w-4xl w-full my-20"
           >
             <motion.h1
               variants={fadeInUp}
@@ -37,12 +38,8 @@ const Hero = () => {
               TradeTalent connects you with skilled freelancers ready to turn
               your ideas into results.
             </motion.p>
-            <motion.div
-              variants={fadeInUp}
-              transition={{ duration: 0.6 }}
-              className="hidden sm:block"
-            >
-              <SearchBar></SearchBar>
+            <motion.div variants={fadeInUp} transition={{ duration: 0.6 }}>
+              <SearchFilter></SearchFilter>
             </motion.div>
             <motion.div
               variants={fadeInUp}
@@ -50,12 +47,14 @@ const Hero = () => {
               className="flex max-sm:flex-col gap-y-4 sm:gap-4 mt-5 justify-center"
             >
               <Button className="px-8 py-6 text-base">Post a Job</Button>
-              <Button
-                className="px-8 py-6 text-white border-white text-base"
-                variant="outline"
-              >
-                Join as Freelancer
-              </Button>
+              <Link to="/auth/signin">
+                <Button
+                  className="px-8 py-6 text-white border-white text-base"
+                  variant="outline"
+                >
+                  Join as Freelancer
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
