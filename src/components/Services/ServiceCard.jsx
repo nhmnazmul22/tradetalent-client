@@ -11,6 +11,7 @@ import {
 import Avatar from "@/assets/avater.png";
 import { Clock, Eye, Heart, ShoppingBasket, StarIcon } from "lucide-react";
 import { Separator } from "../ui/separator";
+import { Link } from "react-router";
 const ServiceCard = () => {
   return (
     <Card className="border p-4 sm:p-0 flex flex-col sm:flex-row group">
@@ -37,9 +38,11 @@ const ServiceCard = () => {
           </div>
         </CardHeader>
         <CardContent className="p-0 mt-2">
-          <h4 className="text-lg sm:text-xl font-medium">
-            I will craft engaging social media marketing, copywriting
-          </h4>
+          <Link to="/">
+            <h4 className="text-lg sm:text-xl font-medium group-hover:text-blue-500 transition-all duration-300">
+              I will craft engaging social media marketing, copywriting
+            </h4>
+          </Link>
           <div className="flex max-sm:flex-col gap-1 sm:items-center mt-3">
             <p className="flex gap-1 items-center">
               <span>
