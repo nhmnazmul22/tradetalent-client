@@ -8,7 +8,8 @@ const Sellers = () => {
     <motion.div
       variants={staggerContainer}
       initial="start"
-      animate="end"
+      whileInView="end"
+      viewport={{ once: true }}
       className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 max-w-7xl mx-auto"
     >
       <motion.div variants={fadeInUp}>

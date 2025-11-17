@@ -43,15 +43,10 @@ const PricingPage = () => {
 
       <Section className=" bg-neutral-50 dark:bg-neutral-950">
         <div className="main-container max-w-4xl mx-auto">
-          <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-3">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-gray-600 dark:text-gray-300">
-              Everything you need to know about our pricing plans.
-            </p>
-          </div>
-
+          <SectionHeading
+            title="Frequently Asked Questions"
+            subtitle="Everything you need to know about our pricing plans."
+          ></SectionHeading>
           <div className="mt-5 ">
             <FAQSection />
           </div>

@@ -1,12 +1,9 @@
 import React from "react";
 import {
   Card,
-  CardAction,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import Avatar from "@/assets/avater.png";
 import { Clock, Eye, Heart, ShoppingBasket, StarIcon } from "lucide-react";

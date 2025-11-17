@@ -8,39 +8,19 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-
-const plans = [
-  {
-    name: "Starter",
-    price: "0% Service Fee",
-    button: "Sign up",
-    highlight: false,
-  },
-  {
-    name: "Professional",
-    price: "10% Service Fee",
-    button: "Sign up",
-    highlight: true,
-  },
-  {
-    name: "Business",
-    price: "20% Service Fee",
-    button: "Sign up",
-    highlight: false,
-  },
-];
-
-const features = [
-  "Access to TradeTalent global marketplace",
-  "Verified Talent ID",
-  "Freelancer work history & reviews",
-  "Top-Rated & Rising Talent Search Filter",
-  "Expert-Vetted Talent",
-];
+import { features, plans } from "@/constant";
+import { motion } from "motion/react";
+import { fadeInScale } from "@/lib/motionVariants";
 
 export default function PricingPlans() {
   return (
-    <div className="overflow-x-auto border rounded-xl shadow-sm">
+    <motion.div
+      variants={fadeInScale}
+      initial="start"
+      whileInView="end"
+      viewport={{ once: true }}
+      className="overflow-x-auto border rounded-xl shadow-sm"
+    >
       <Table>
         <TableHeader>
           <TableRow className="bg-gray-50 dark:bg-neutral-800">
@@ -82,6 +62,6 @@ export default function PricingPlans() {
           ))}
         </TableBody>
       </Table>
-    </div>
+    </motion.div>
   );
 }

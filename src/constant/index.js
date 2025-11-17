@@ -365,3 +365,59 @@ export const testimonials = [
     text: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
   },
 ];
+
+export const plans = [
+  {
+    name: "Starter",
+    price: "0% Service Fee",
+    button: "Sign up",
+    highlight: false,
+  },
+  {
+    name: "Professional",
+    price: "10% Service Fee",
+    button: "Sign up",
+    highlight: true,
+  },
+  {
+    name: "Business",
+    price: "20% Service Fee",
+    button: "Sign up",
+    highlight: false,
+  },
+];
+
+export const features = [
+  "Access to TradeTalent global marketplace",
+  "Verified Talent ID",
+  "Freelancer work history & reviews",
+  "Top-Rated & Rising Talent Search Filter",
+  "Expert-Vetted Talent",
+];
+
+export const faqs = [
+  {
+    id: "item-1",
+    question: "How does the service fee work?",
+    answer:
+      "Service fees are applied per transaction depending on your selected plan. Basic users pay 5% while Business Plus users pay 10%.",
+  },
+  {
+    id: "item-2",
+    question: "Can I upgrade or downgrade my plan anytime?",
+    answer:
+      "Yes. You can switch plans at any time without penalties. Changes apply immediately for future transactions.",
+  },
+  {
+    id: "item-3",
+    question: "Do freelancers need to pay to join?",
+    answer:
+      "No. Freelancers can join completely free. Optional paid tools and boosts may be available inside the platform.",
+  },
+  {
+    id: "item-4",
+    question: "Is payment secure?",
+    answer:
+      "All payments are processed through encrypted, PCI-compliant payment gateways. Your data and funds remain fully protected.",
+  },
+];
