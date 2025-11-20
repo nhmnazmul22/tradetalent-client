@@ -1,16 +1,14 @@
 import React from "react";
+import { Badge } from "../ui/badge";
 
 const SellerSkills = ({ skills }) => (
-  <div className="bg-white dark:bg-gray-900 border dark:border-gray-800 rounded-lg p-6">
-    <h2 className="text-xl font-semibold text-blue-500 mb-3">Skills</h2>
-    <div className="flex gap-2 flex-wrap">
-      {skills.map((skill, i) => (
-        <span
-          key={i}
-          className="text-sm bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded"
-        >
-          {skill}
-        </span>
+  <div className="mt-6">
+    <h4 className="font-semibold">Skills</h4>
+    <div className="flex gap-2 mt-2 flex-wrap">
+      {skills.map((s) => (
+        <Badge variant="secondary" className="text-sm" key={s}>
+          {s}
+        </Badge>
       ))}
     </div>
   </div>

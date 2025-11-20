@@ -1,67 +1,78 @@
 import React from "react";
-import SellerHeader from "@/components/SellerProfile/SellerHeader";
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import Services from "@/components/Services/Services";
 import SellerAbout from "@/components/SellerProfile/SellerAbout";
 import SellerSkills from "@/components/SellerProfile/SellerSkills";
-import SellerServices from "@/components/SellerProfile/SellerServices";
-import SellerSidebar from "@/components/SellerProfile/SellerSidebar";
+import SellerInsights from "@/components/SellerProfile/SellerInsights";
+import AboutTabContent from "@/components/SellerProfile/AboutTabContent";
+import { motion } from "motion/react";
+import { fadeInUp, staggerContainer } from "@/lib/motionVariants";
 
-const SellerProfilePage = () => {
-  const seller = {
-    name: "NHM Nazmul",
-    bio: "Professional Full Stack Developer | MERN & React Native Specialist",
-    description:
-      "I create modern, scalable web and mobile applications using React, Node.js, and MongoDB. My focus is on clean UI, optimized performance, and maintainable code.",
-    rating: 4.9,
-    totalOrders: 120,
-    totalReviews: 45,
-    verified: true,
-    featured: true,
-    since: "2021",
-    location: "Dhaka, Bangladesh",
-    languages: ["English", "Bangla"],
-    skills: [
-      "React",
-      "Next.js",
-      "Node.js",
-      "MongoDB",
-      "Tailwind",
-      "React Native",
-    ],
-  };
+// Mock Data
+const profile = {
+  name: "Lucy Haley",
+  role: "Human Resources",
+  featured: true,
+  avatar: "/images/hero-bg-2.jpg",
+  rating: 4.5,
+  rate: "$60/day",
+  location: "Buffalo",
+  languages: ["Chinese", "English"],
+  skills: ["Recruitment", "Software"],
+  earnings: 1418,
+  completed: 12,
+  memberSince: "Jul 2024",
+};
 
-  const services = [
-    {
-      title: "Next.js Web App Development",
-      price: "$350",
-      image: "https://via.placeholder.com/300x200",
-    },
-    {
-      title: "React Native Mobile App",
-      price: "$250",
-      image: "https://via.placeholder.com/300x200",
-    },
-    {
-      title: "Full Stack MERN App",
-      price: "$500",
-      image: "https://via.placeholder.com/300x200",
-    },
-  ];
-
+const ProfilePage = () => {
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-black dark:text-white py-8 px-4">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* LEFT */}
-        <div className="lg:col-span-2 space-y-6">
-          <SellerHeader seller={seller} />
-          <SellerAbout description={seller.description} />
-          <SellerSkills skills={seller.skills} />
-          <SellerServices services={services} />
-        </div>
-        {/* RIGHT */}
-        <SellerSidebar seller={seller} />
+    <motion.div
+      variants={staggerContainer}
+      initial="start"
+      whileInView="end"
+      viewport={{ once: true }}
+      className="max-w-6xl mx-auto py-10 grid grid-cols-1 lg:grid-cols-3 gap-6"
+    >
+      <Card className="p-6 h-max sticky top-10 bg-white dark:bg-neutral-900 shadow-sm">
+        <motion.div variants={fadeInUp}>
+          <SellerAbout profile={profile}></SellerAbout>
+        </motion.div>
+        <motion.div variants={fadeInUp}>
+          <SellerSkills skills={profile.skills}></SellerSkills>
+        </motion.div>
+        <motion.div variants={fadeInUp}>
+          <SellerInsights profile={profile}></SellerInsights>
+        </motion.div>
+      </Card>
+
+      <div className="lg:col-span-2">
+        <Tabs defaultValue="about">
+          <motion.div variants={fadeInUp}>
+            <TabsList className="mb-6 w-full">
+              <TabsTrigger value="about">About Me</TabsTrigger>
+              <TabsTrigger value="services">Services</TabsTrigger>
+            </TabsList>
+          </motion.div>
+
+          <TabsContent value="about">
+            <motion.div
+              variants={fadeInUp}
+              initial="start"
+              whileInView="end"
+              viewport={{ once: true }}
+            >
+              <AboutTabContent></AboutTabContent>
+            </motion.div>
+          </TabsContent>
+
+          <TabsContent value="services">
+            <Services className="grid-cols-1!"></Services>
+          </TabsContent>
+        </Tabs>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
-export default SellerProfilePage;
+export default ProfilePage;

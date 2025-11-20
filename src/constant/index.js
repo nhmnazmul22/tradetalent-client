@@ -13,6 +13,8 @@ import {
   Smartphone,
   ToolCase,
   UserSquare,
+  User,
+  ShoppingCart,
 } from "lucide-react";
 import AbbottLogo from "@/assets/company-logos/abbott.svg";
 import NetflixLogo from "@/assets/company-logos/netflix.svg";
@@ -170,14 +172,11 @@ export const menuItems = [
   { label: "Pricing", href: "/pricing", icon: CreditCard },
 ];
 export const userMenu = [
-  { label: "Dashboard", href: "/dashboard" },
-  { label: "My Profile", href: "/profile" },
-  { label: "My Added Jobs", href: "/myAddedJobs" },
-  { label: "My Accepted Tasks", href: "/my-accepted-tasks" },
-  { label: "Messages", href: "/messages" },
-  { label: "Notifications", href: "/notifications" },
-  { label: "Settings", href: "/settings" },
-  { label: "Logout", href: "/logout" },
+  {
+    label: "Profile",
+    href: "/profile",
+    icon: User,
+  },
 ];
 
 export const companyLogos = [

@@ -3,7 +3,6 @@ import LeftSide from "@/components/ServiceDetails/LeftSide";
 import RightSide from "@/components/ServiceDetails/RightSide";
 import React from "react";
 import { motion } from "motion/react";
-import { staggerContainer } from "@/lib/motionVariants";
 
 const ServiceDetail = () => {
   const service = {
