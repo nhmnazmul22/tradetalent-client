@@ -5,6 +5,7 @@ import Button from "../common/Button";
 import ToggleTheme from "../Theme/ToggleTheme";
 import { SidebarTrigger } from "../ui/sidebar";
 import { Link } from "react-router";
+import DropDownMenu from "./DropDownMenu";
 
 const Navbar = () => {
   return (
@@ -17,13 +18,16 @@ const Navbar = () => {
           </div>
           <div className="flex gap-3 items-center">
             <ToggleTheme></ToggleTheme>
-            <div className="hidden lg:flex gap-2 items-center">
+            {/* <div className="hidden lg:flex gap-2 items-center">
               <Link>
                 <Button variant="outline">Post a Job</Button>
               </Link>
               <Link to="/auth/signup">
                 <Button>Join as Freelancer</Button>
               </Link>
+            </div> */}
+            <div className="hidden lg:flex gap-2 items-center">
+              <DropDownMenu></DropDownMenu>
             </div>
             <div className="block lg:hidden">
               <SidebarTrigger></SidebarTrigger>
