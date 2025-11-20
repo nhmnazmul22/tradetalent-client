@@ -7,6 +7,8 @@ import { createBrowserRouter, Navigate } from "react-router";
 import ServicesPage from "@/pages/Services";
 import SellersPage from "@/pages/Sellers";
 import PricingPage from "@/pages/Pricing";
+import ServiceDetails from "@/pages/ServiceDetails/page";
+import SellerProfilePage from "@/pages/SellerDetails";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
       {
         path: "pricing",
         element: <PricingPage></PricingPage>,
+      },
+      {
+        path: "sellers/:sellerId",
+        element: <SellerProfilePage></SellerProfilePage>,
+      },
+      {
+        path: "services/:serviceId",
+        element: <ServiceDetails></ServiceDetails>,
       },
     ],
   },
