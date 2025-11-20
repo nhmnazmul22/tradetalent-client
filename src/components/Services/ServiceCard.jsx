@@ -35,7 +35,7 @@ const ServiceCard = () => {
           </div>
         </CardHeader>
         <CardContent className="p-0 mt-2">
-          <Link to="/">
+          <Link to="/services/1">
             <h4 className="text-lg sm:text-xl font-medium group-hover:text-blue-500 transition-all duration-300">
               I will craft engaging social media marketing, copywriting
             </h4>
