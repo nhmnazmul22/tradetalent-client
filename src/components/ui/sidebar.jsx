@@ -238,7 +238,7 @@ function SidebarTrigger({ className, onClick, ...props }) {
       data-sidebar="trigger"
       data-slot="sidebar-trigger"
       className={cn(
-        "px-3! bg-transparent shadow-none hover:bg-transparent hover:ring-0 hover:ring-offset-0 cursor-pointer",
+        "px-1! bg-transparent shadow-none hover:bg-transparent hover:ring-0 hover:ring-offset-0 cursor-pointer",
         className
       )}
       onClick={(event) => {

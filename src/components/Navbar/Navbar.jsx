@@ -16,19 +16,19 @@ const Navbar = () => {
           <div className="hidden lg:block">
             <Navigation></Navigation>
           </div>
-          <div className="flex gap-3 items-center">
+          <div className="flex gap-2 items-center">
             <ToggleTheme></ToggleTheme>
-            {/* <div className="hidden lg:flex gap-2 items-center">
-              <Link>
+            <div className="hidden lg:flex gap-2 items-center">
+              <Link to="/post-job">
                 <Button variant="outline">Post a Job</Button>
               </Link>
               <Link to="/auth/signup">
                 <Button>Join as Freelancer</Button>
               </Link>
-            </div> */}
-            <div className="hidden lg:flex gap-2 items-center">
-              <DropDownMenu></DropDownMenu>
             </div>
+            {/* <div className="flex gap-2 items-center">
+              <DropDownMenu></DropDownMenu>
+            </div> */}
             <div className="block lg:hidden">
               <SidebarTrigger></SidebarTrigger>
             </div>
