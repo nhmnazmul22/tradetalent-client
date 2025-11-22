@@ -9,15 +9,25 @@ import SellersPage from "@/pages/Sellers";
 import PricingPage from "@/pages/Pricing";
 import ServiceDetails from "@/pages/ServiceDetails/page";
 import SellerProfilePage from "@/pages/SellerDetails";
+import GuestGuard from "./GuestGuard";
+import PrivateRoute from "./PrivateRoute";
+import NotFoundPage from "@/pages/Error/NotFound";
+import ErrorPage from "@/pages/Error/Error";
+import UnderConstruction from "@/pages/Error/UnderConstruction";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout></RootLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
         element: <HomePage></HomePage>,
+      },
+      {
+        path: "all-jobs",
+        element: <UnderConstruction></UnderConstruction>,
       },
       {
         path: "services",
@@ -41,13 +51,46 @@ const router = createBrowserRouter([
       },
       {
         path: "profile",
-        element: <SellerProfilePage></SellerProfilePage>,
+        element: (
+          <PrivateRoute>
+            <SellerProfilePage></SellerProfilePage>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "my-orders",
+        element: (
+          <PrivateRoute>
+            <UnderConstruction></UnderConstruction>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "create-service",
+        element: (
+          <PrivateRoute>
+            <UnderConstruction></UnderConstruction>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "my-tasks",
+        element: (
+          <PrivateRoute>
+            <UnderConstruction></UnderConstruction>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "*",
+        element: <NotFoundPage></NotFoundPage>,
       },
     ],
   },
   {
     path: "/auth",
     element: <AuthLayout></AuthLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
@@ -55,11 +98,19 @@ const router = createBrowserRouter([
       },
       {
         path: "signup",
-        element: <Signup></Signup>,
+        element: (
+          <GuestGuard>
+            <Signup></Signup>
+          </GuestGuard>
+        ),
       },
       {
         path: "signin",
-        element: <Signin></Signin>,
+        element: (
+          <GuestGuard>
+            <Signin></Signin>
+          </GuestGuard>
+        ),
       },
     ],
   },
