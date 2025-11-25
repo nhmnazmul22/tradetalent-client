@@ -38,7 +38,7 @@ const Pricing = () => {
           subtitle="Best for active freelancers"
           highlighted={true}
           features={[
-            "Unlimited services",
+            "Unlimited services.js",
             "Priority ranking",
             "Advanced analytics",
             "Unlimited messaging",

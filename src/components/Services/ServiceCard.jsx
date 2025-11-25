@@ -9,18 +9,23 @@ import Avatar from "@/assets/avater.png";
 import { Clock, Eye, Heart, ShoppingBasket, StarIcon } from "lucide-react";
 import { Separator } from "../ui/separator";
 import { Link } from "react-router";
-const ServiceCard = () => {
-  return (
+import useAuth from "@/hooks/useAuth.jsx";
+
+const ServiceCard = ({service}) => {
+
+    return (
     <Card className="border p-4 sm:p-0 flex flex-col sm:flex-row group">
       <figure className="w-full sm:max-w-[220px] max-sm:h-[300px] rounded-xl sm:rounded-l-xl overflow-hidden relative">
         <img
-          src={Avatar}
-          alt=""
+          src={service?.image || "https://via.placeholder.com/300x200"}
+          alt={service.title}
           className="w-full h-full object-cover group-hover:scale-110 transition-all duration-300"
         />
-        <div className="absolute top-3  left-3 bg-yellow-500 py-1 px-4 rounded-full">
-          Featured
-        </div>
+          {service.featured && (
+              <div className="absolute top-3  left-3 bg-yellow-500 py-1 px-4 rounded-full">
+                  Featured
+              </div>
+          )}
       </figure>
       <div className="py-5 flex-1 pe-5">
         <CardHeader className="p-0">
@@ -37,7 +42,7 @@ const ServiceCard = () => {
         <CardContent className="p-0 mt-2">
           <Link to="/services/1">
             <h4 className="text-lg sm:text-xl font-medium group-hover:text-blue-500 transition-all duration-300">
-              I will craft engaging social media marketing, copywriting
+                {service?.title}
             </h4>
           </Link>
           <div className="flex max-sm:flex-col gap-1 sm:items-center mt-3">
@@ -48,7 +53,7 @@ const ServiceCard = () => {
                   className="text-yellow-500 fill-yellow-500"
                 ></StarIcon>
               </span>
-              <span className="not-dark:text-gray-700">4.5 (2)</span>
+              <span className="not-dark:text-gray-700">{service?.rating || 5} ({service?.totalReviews || 0})</span>
             </p>
             <Separator
               orientation="vertical"
@@ -58,7 +63,7 @@ const ServiceCard = () => {
               <span>
                 <ShoppingBasket size={20}></ShoppingBasket>
               </span>
-              <span>0 Sale</span>
+              <span>{service?.totalSale || 0} Sale</span>
             </p>
             <Separator
               orientation="vertical"
@@ -68,7 +73,7 @@ const ServiceCard = () => {
               <span>
                 <Eye size={20}></Eye>
               </span>
-              <span>0 Views</span>
+              <span> {service?.views || 0} Views</span>
             </p>
           </div>
         </CardContent>
