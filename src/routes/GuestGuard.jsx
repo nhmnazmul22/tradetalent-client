@@ -4,7 +4,6 @@ import { Navigate, useLocation } from "react-router";
 const GuestGuard = ({ children }) => {
   const { user } = useAuthContext();
   const location = useLocation();
-
   const redirectTo = location.state || "/";
 
   if (user) {
