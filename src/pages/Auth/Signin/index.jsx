@@ -1,10 +1,37 @@
 import Logo from "@/components/common/Logo";
 import SigninForm from "@/components/Form/SigninForm";
-import React from "react";
-import { Link } from "react-router";
+import React, {useState} from "react";
+import {Link, useLocation, useNavigate} from "react-router";
+import useAuthContext from "@/hooks/useAuth.jsx";
+import toast from "react-hot-toast";
+
+
 
 const Signin = () => {
-  return (
+    const [loading, setLoading] = useState(false);
+    const { signinUser } = useAuthContext();
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        try {
+            const email = e.target.email.value;
+            const password = e.target.password.value;
+            await signinUser(email, password);
+            e.target.reset();
+            toast.success("Login Successful");
+            navigate(location.state || "/");
+        } catch (err) {
+            console.error(err);
+            toast.error(err?.message || "Something went wrong!!");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    return (
     <div className="w-full h-full flex justify-center items-center p-10">
       <div className="max-w-xl w-full">
         <Link to="/">
@@ -20,7 +47,7 @@ const Signin = () => {
           </p>
         </div>
         <div className="">
-          <SigninForm></SigninForm>
+          <SigninForm handleSubmit={handleSubmit} loading={loading}></SigninForm>
         </div>
       </div>
     </div>

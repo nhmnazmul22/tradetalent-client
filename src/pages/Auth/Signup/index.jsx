@@ -7,9 +7,11 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { validatePassword } from "@/lib/utils";
 import toast from "react-hot-toast";
 import useAuthContext from "@/hooks/useAuth";
+import {saveUser} from "@/Services/userServices.js";
 
 const Signup = () => {
   const [loading, setLoading] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
   const [type, setType] = useState("seller");
   const {
     createUser,
@@ -17,7 +19,6 @@ const Signup = () => {
     signOutUser,
     updateUser,
     setUser,
-    user,
     setLoading: authLoading,
   } = useAuthContext();
   const navigate = useNavigate();
@@ -46,7 +47,19 @@ const Signup = () => {
         });
       }
 
-      // Signout the user
+      // Save the user in database
+        const payload = {
+            name: `${data.firstName} ${data.lastName}`,
+            username: data.username,
+            email: data.email,
+            phone: data.phone,
+            role: type,
+            avatar: data.photoURL
+        }
+        await saveUser(payload);
+
+
+      // Sign out the user
       setUser(null);
       await signOutUser();
       e.target.reset();
@@ -55,11 +68,39 @@ const Signup = () => {
       console.log("Account created successfully", response.user);
     } catch (err) {
       console.error("Signup error:", err);
+      toast.error(err?.message || "Something went wrong")
     } finally {
       setLoading(false);
-      authLoading(false);
     }
   };
+
+
+  const handleGoogleLogin = async () => {
+        setGoogleLoading(true)
+        try {
+            const result = await signInWithGoogle();
+
+            // Save the user in database
+            const payload = {
+                name: result.user.displayName || "Gust",
+                username: result.user.username || "",
+                email: result.user.email,
+                phone: result.user.phone || "",
+                role: type,
+                avatar: result.user.photoURL,
+            }
+            if(result.user){
+                await saveUser(payload);
+            }
+
+            navigate(location.state || "/");
+        } catch (err) {
+            console.error(err);
+        } finally {
+            setGoogleLoading(false);
+            authLoading(false);
+        }
+    };
 
   return (
     <div className="w-full h-full flex justify-center items-center p-10">
@@ -89,7 +130,7 @@ const Signup = () => {
             <Separator className="basis-5/12"></Separator>
           </div>
 
-          <Button className="w-full cursor-pointer">
+          <Button className="w-full cursor-pointer" onClick={handleGoogleLogin} disable={googleLoading}>
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
