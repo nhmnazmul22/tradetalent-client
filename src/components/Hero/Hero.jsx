@@ -11,7 +11,7 @@ const Hero = () => {
       <div
         className={`relative main-container mt-5 rounded-2xl min-h-[80vh] h-full bg-[url(/images/hero-bg.jpg)] bg-center bg-cover bg-no-repeat bg-blend-soft-light scale-x-[-1] flex justify-center items-center text-center`}
       >
-        <div class="absolute inset-0 bg-linear-to-r  from-black/60 to-black/60 rounded-2xl"></div>
+        <div className="absolute inset-0 bg-linear-to-r  from-black/60 to-black/60 rounded-2xl"></div>
         <div className="relative z-20 scale-x-[-1]">
           <motion.div
             variants={staggerContainer}

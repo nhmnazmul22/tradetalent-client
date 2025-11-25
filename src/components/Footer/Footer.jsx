@@ -13,7 +13,7 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <section className="bg-black text-gray-300 py-20 mt-10">
+    <section className="bg-black text-gray-300 py-20">
       <div className="main-container">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
           <div>
