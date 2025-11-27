@@ -3,7 +3,7 @@ import SellersCart from "./SellersCart";
 import { motion } from "motion/react";
 import { fadeInUp, staggerContainer } from "@/lib/motionVariants";
 
-const Sellers = () => {
+const Sellers = ({sellers}) => {
   return (
     <motion.div
       variants={staggerContainer}
@@ -12,18 +12,11 @@ const Sellers = () => {
       viewport={{ once: true }}
       className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 max-w-7xl mx-auto"
     >
-      <motion.div variants={fadeInUp}>
-        <SellersCart></SellersCart>
-      </motion.div>
-      <motion.div variants={fadeInUp}>
-        <SellersCart></SellersCart>
-      </motion.div>
-      <motion.div variants={fadeInUp}>
-        <SellersCart></SellersCart>
-      </motion.div>
-      <motion.div variants={fadeInUp}>
-        <SellersCart></SellersCart>
-      </motion.div>
+        {sellers && sellers.length > 0 && sellers.map((seller)=>(
+            <motion.div variants={fadeInUp}>
+                <SellersCart seller={seller}></SellersCart>
+            </motion.div>
+        ))}
     </motion.div>
   );
 };

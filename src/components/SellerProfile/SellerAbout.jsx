@@ -2,22 +2,20 @@ import React from "react";
 import Button from "../common/Button";
 import { Badge } from "../ui/badge";
 import { MapPin, Star, Send, Mail } from "lucide-react";
-import useAuth from "@/hooks/useAuth.jsx";
 
 const SellerAbout = ({ profile }) => {
-    const {user} = useAuth();
 
     return (
         <div className="flex flex-col items-center text-center">
             <figure>
                 <img
-                    src={user?.photoURL || '/'}
+                    src={profile?.avater || '/'}
                     className="w-28 h-28 rounded-full border"
                     alt=""
                 />
             </figure>
-            <h2 className="text-xl font-semibold mt-4">{user?.displayName}</h2>
-            <p className="text-gray-500">Seller</p>
+            <h2 className="text-xl font-semibold mt-4">{profile?.name}</h2>
+            <p className="text-gray-500">{profile?.title}</p>
             {profile?.featured && (
                 <Badge className="mt-2 bg-yellow-500 text-white">Featured</Badge>
             )}

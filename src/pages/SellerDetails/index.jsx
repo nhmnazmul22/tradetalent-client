@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Card, CardContent} from "@/components/ui/card";
+import {Card} from "@/components/ui/card";
 import {Tabs, TabsList, TabsTrigger, TabsContent} from "@/components/ui/tabs";
 import Services from "@/components/Services/Services";
 import SellerAbout from "@/components/SellerProfile/SellerAbout";
@@ -8,36 +8,32 @@ import SellerInsights from "@/components/SellerProfile/SellerInsights";
 import AboutTabContent from "@/components/SellerProfile/AboutTabContent";
 import {motion} from "motion/react";
 import {fadeInUp, staggerContainer} from "@/lib/motionVariants";
-import useProfileContext from "@/hooks/useProfile.jsx";
-import {Navigate} from "react-router";
+import {Navigate, useLoaderData} from "react-router";
 import {getSellerServices} from "@/Services/services.js";
-import useAuth from "@/hooks/useAuth.jsx";
+
 
 
 const ProfilePage = () => {
-    const {profile} = useProfileContext();
-    const {user} = useAuth();
+    const result = useLoaderData();
+
     const [services, setServices] = useState([]);
-
-
 
     useEffect(() => {
         const fetchServices = async () => {
             try {
-               const response = await getSellerServices(user.email);
-                if(response.success) setServices(response.data);
+              if(result.data.userEmail){
+                  const response = await getSellerServices(result.data.userEmail);
+                  if(response.success) setServices(response.data);
+              }
             } catch (error) {
                 console.error("Error fetching services:", error);
             }
         }
 
         fetchServices();
-    }, [user.email]);
+    }, [result.data.userEmail]);
 
 
-    if (!profile) {
-        return <Navigate to="/create-profile" replace/>;
-    }
 
     return (
         <motion.div
@@ -48,16 +44,16 @@ const ProfilePage = () => {
             className="max-w-6xl mx-auto py-10 grid grid-cols-1 lg:grid-cols-3 gap-6"
         >
             <Card className="p-6 h-max sticky top-10 bg-white dark:bg-neutral-900 shadow-sm">
-                {profile && (
+                {result.data && (
                     <>
                         <motion.div variants={fadeInUp}>
-                            <SellerAbout profile={profile}></SellerAbout>
+                            <SellerAbout profile={result.data}></SellerAbout>
                         </motion.div>
                         <motion.div variants={fadeInUp}>
-                            <SellerSkills skills={profile?.skills}></SellerSkills>
+                            <SellerSkills skills={result.data?.skills}></SellerSkills>
                         </motion.div>
                         <motion.div variants={fadeInUp}>
-                            <SellerInsights profile={profile}></SellerInsights>
+                            <SellerInsights profile={result.data}></SellerInsights>
                         </motion.div>
                     </>
                 )}
@@ -79,7 +75,7 @@ const ProfilePage = () => {
                             whileInView="end"
                             viewport={{once: true}}
                         >
-                            <AboutTabContent></AboutTabContent>
+                            <AboutTabContent profile={result.data}></AboutTabContent>
                         </motion.div>
                     </TabsContent>
 

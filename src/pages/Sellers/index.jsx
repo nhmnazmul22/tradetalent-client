@@ -2,9 +2,15 @@ import Section from "@/components/common/Section";
 import SearchFilter from "@/components/Filters/SearchFilter";
 import SortingFilter from "@/components/Filters/SortingFilter";
 import Sellers from "@/components/Sellers/Sellers";
-import React from "react";
+import React, {use} from "react";
+import {getSellers} from "@/Services/sellerProfile.js";
 
+
+const sellerPromise = getSellers();
 const SellersPage = () => {
+    const sellerResult = use(sellerPromise);
+
+
   return (
     <>
       <Section className="relative bg-[url(/images/hero-bg.jpg)] bg-center bg-cover bg-no-repeat bg-blend-soft-light">
@@ -24,7 +30,7 @@ const SellersPage = () => {
             <SortingFilter></SortingFilter>
           </div>
           <div className="mt-10">
-            <Sellers></Sellers>
+            <Sellers sellers={sellerResult.data}></Sellers>
           </div>
         </div>
       </Section>

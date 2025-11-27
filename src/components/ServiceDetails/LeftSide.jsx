@@ -27,15 +27,15 @@ const LeftSide = ({ service, seller }) => {
             <div className="bg-gray-50 dark:bg-neutral-800 rounded-md p-4 h-full flex flex-col justify-between">
               <motion.div variants={fadeInUp}>
                 <h3 className="text-lg font-semibold dark:text-white">
-                  {service.title}
+                  {service.title ||  "N/A"}
                 </h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-                  {service.category}
+                  {service.category ||  "N/A"}
                 </p>
 
                 <div className="mt-4">
                   <span className="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded-full text-sm">
-                    Seller: {seller.name}
+                    Seller: {seller.name ||  "N/A"}
                   </span>
 
                   <div className="mt-3 text-sm text-gray-600 dark:text-gray-300">
@@ -44,7 +44,7 @@ const LeftSide = ({ service, seller }) => {
                     </div>
                     <div>{seller.totalOrders} orders completed</div>
                     <div className="mt-2 text-xs text-gray-400 dark:text-gray-500">
-                      {seller.location}
+                      {seller.location ||  "N/A"}
                     </div>
                   </div>
                 </div>
@@ -127,18 +127,18 @@ const LeftSide = ({ service, seller }) => {
           />
           <div>
             <h4 className="text-lg font-semibold dark:text-white">
-              {seller.name}
+              {seller.name || "N/A"}
             </h4>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              {seller.title}
+              {seller.title ||  "N/A"}
             </p>
 
             <p className="mt-3 text-gray-700 dark:text-gray-300">
-              {seller.about}
+              {seller.about ||  "N/A"}
             </p>
             <div className="mt-3 text-sm">
               <div className="flex gap-1 items-center">
-                Rating: <span className="font-medium">{seller.rating}</span>
+                Rating: <span className="font-medium">{seller.rating || 0}</span>
                 <span>
                   <Star
                     size={16}
@@ -147,7 +147,7 @@ const LeftSide = ({ service, seller }) => {
                   ></Star>
                 </span>
               </div>
-              <div>{seller.totalOrders} orders</div>
+              <div>{seller.totalOrders || 0} orders</div>
             </div>
 
             <div className="mt-4 flex items-center space-x-3">
