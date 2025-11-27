@@ -10,14 +10,16 @@ const ProfileContextProvider = ({children}) => {
 
     useEffect(() => {
         const sellerProfile = async () => {
-            const profileInfo = await getSellerProfile(user.email);
-            if (profileInfo.success) {
-                setProfile(profileInfo.data);
-            }
+           if(user.email){
+               const profileInfo = await getSellerProfile(user.email);
+               if (profileInfo.success) {
+                   setProfile(profileInfo.data);
+               }
+           }
 
         }
         sellerProfile()
-    }, [user.email]);
+    }, [user?.email]);
 
 
     return (

@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import Button from "../common/Button";
+import OrderCreateModal from "@/components/Form/OrderCreateModal.jsx";
 
 const PricingBox = ({ pricing, className }) => {
-  return (
+    const [open, setOpen] = useState(false);
+
+    return (
     <div
       className={`
         border rounded p-4
@@ -40,12 +43,14 @@ const PricingBox = ({ pricing, className }) => {
       </ul>
 
       <div className="mt-4 flex space-x-2">
-        <Button variant="outline" className="flex-1 py-2 rounded">
+        <Button variant="outline" className="flex-1 py-2 rounded" onClick={()=> setOpen(true)}>
           Select
         </Button>
 
-        <Button className="py-2 px-3 rounded w-32">Continue</Button>
+        <Button className="py-2 px-3 rounded w-32" onClick={()=> setOpen(true)}>Continue</Button>
       </div>
+
+        <OrderCreateModal setOpen={setOpen} open={open}></OrderCreateModal>
     </div>
   );
 };

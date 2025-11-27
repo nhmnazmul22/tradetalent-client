@@ -2,10 +2,15 @@ import Section from "@/components/common/Section";
 import SearchFilter from "@/components/Filters/SearchFilter";
 import SortingFilter from "@/components/Filters/SortingFilter";
 import Services from "@/components/Services/Services";
-import React from "react";
+import React, {use} from "react";
+import {getServices} from "@/Services/services.js";
 
+
+const servicePromise = getServices()
 const ServicesPage = () => {
-  return (
+    const servicesResult = use(servicePromise);
+
+    return (
     <>
       <Section className="relative bg-[url(/images/hero-bg.jpg)] bg-center bg-cover bg-no-repeat bg-blend-soft-light">
         <div className="absolute inset-0 bg-linear-to-b from-neutral-800/50 to-neutral-800/30 z-10"></div>
@@ -24,7 +29,7 @@ const ServicesPage = () => {
             <SortingFilter></SortingFilter>
           </div>
           <div className="mt-10">
-            <Services></Services>
+            <Services services={servicesResult.data}></Services>
           </div>
         </div>
       </Section>

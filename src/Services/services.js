@@ -10,9 +10,29 @@ export const getSellerServices = async (sellerEmail)=>{
     }
 }
 
+export const getServiceById = async (serviceId)=>{
+    try {
+        const response = await axiosInstance.get(`/services/${serviceId}`);
+        return response.data
+    }catch (err){
+        console.error(err);
+        return {success: false, message: err?.message || "Something went wrong"}
+    }
+}
+
 export const getServices = async ()=>{
     try {
         const response = await axiosInstance.get(`/services`);
+        return response.data
+    }catch (err){
+        console.error(err);
+        return {success: false, message: err?.message || "Something went wrong"}
+    }
+}
+
+export const getFeaturedServices = async ()=>{
+    try {
+        const response = await axiosInstance.get(`/featured-services`);
         return response.data
     }catch (err){
         console.error(err);

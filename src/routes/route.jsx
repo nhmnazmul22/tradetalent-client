@@ -13,9 +13,12 @@ import GuestGuard from "./GuestGuard";
 import PrivateRoute from "./PrivateRoute";
 import NotFoundPage from "@/pages/Error/NotFound";
 import ErrorPage from "@/pages/Error/Error";
-import UnderConstruction from "@/pages/Error/UnderConstruction";
 import CreateSellerProfile from "@/pages/CreateProfile/index.jsx";
-import {getSellerServices} from "@/Services/services.js";
+import CreateServicePage from "@/pages/CreateService";
+import MyOrderPage from "@/pages/MyOrders";
+import {getServiceById} from "@/Services/services.js";
+import {getSellerProfileById} from "@/Services/sellerProfile.js";
+import ProfilePage from "@/pages/Profile/index.jsx";
 
 const router = createBrowserRouter([
     {
@@ -26,10 +29,6 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <HomePage></HomePage>,
-            },
-            {
-                path: "all-jobs",
-                element: <UnderConstruction></UnderConstruction>,
             },
             {
                 path: "services",
@@ -45,17 +44,19 @@ const router = createBrowserRouter([
             },
             {
                 path: "sellers/:sellerId",
+                loader: ({params}) => getSellerProfileById(params.sellerId),
                 element: <SellerProfilePage></SellerProfilePage>,
             },
             {
                 path: "services/:serviceId",
+                loader: ({params}) => getServiceById(params.serviceId),
                 element: <ServiceDetails></ServiceDetails>,
             },
             {
                 path: "profile",
                 element: (
                     <PrivateRoute>
-                        <SellerProfilePage></SellerProfilePage>
+                        <ProfilePage></ProfilePage>
                     </PrivateRoute>
                 ),
             },
@@ -71,7 +72,7 @@ const router = createBrowserRouter([
                 path: "my-orders",
                 element: (
                     <PrivateRoute>
-                        <UnderConstruction></UnderConstruction>
+                        <MyOrderPage></MyOrderPage>
                     </PrivateRoute>
                 ),
             },
@@ -79,15 +80,7 @@ const router = createBrowserRouter([
                 path: "create-service",
                 element: (
                     <PrivateRoute>
-                        <UnderConstruction></UnderConstruction>
-                    </PrivateRoute>
-                ),
-            },
-            {
-                path: "my-tasks",
-                element: (
-                    <PrivateRoute>
-                        <UnderConstruction></UnderConstruction>
+                        <CreateServicePage></CreateServicePage>
                     </PrivateRoute>
                 ),
             },
@@ -99,10 +92,11 @@ const router = createBrowserRouter([
     },
     {
         path: "/auth",
-        element:
+        element: (
             <GuestGuard>
                 <AuthLayout></AuthLayout>
-            </GuestGuard>,
+            </GuestGuard>
+        ),
         errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
@@ -111,15 +105,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "signup",
-                element: (
-                    <Signup></Signup>
-                ),
+                element: <Signup></Signup>,
             },
             {
                 path: "signin",
-                element: (
-                    <Signin></Signin>
-                ),
+                element: <Signin></Signin>,
             },
         ],
     },

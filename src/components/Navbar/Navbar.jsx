@@ -14,7 +14,7 @@ const Navbar = () => {
     const {user} = useAuthContext()
 
     return (
-        <nav className="py-3 bg-white dark:bg-transparent relative z-998">
+        <nav className="py-3 bg-white dark:bg-transparent relative z-97">
             <div className="main-container">
                 <div className="flex justify-between items-center">
                     <Logo></Logo>

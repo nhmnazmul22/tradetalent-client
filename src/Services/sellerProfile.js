@@ -2,7 +2,27 @@ import axiosInstance from "@/lib/axiosInstance.js";
 
 export const getSellerProfile = async (userEmail)=>{
     try {
-        const response = await axiosInstance.get(`/seller-profile/${userEmail}`);
+        const response = await axiosInstance.get(`/profile/${userEmail}`);
+        return response.data
+    }catch (err){
+        console.error(err);
+        return {success: false, message: err?.message || "Something went wrong"}
+    }
+}
+
+export const getSellerProfileById = async (sellerId)=>{
+    try {
+        const response = await axiosInstance.get(`/seller-profile/${sellerId}`);
+        return response.data
+    }catch (err){
+        console.error(err);
+        return {success: false, message: err?.message || "Something went wrong"}
+    }
+}
+
+export const getTopSellerProfile = async ()=>{
+    try {
+        const response = await axiosInstance.get(`/top-seller-profiles`);
         return response.data
     }catch (err){
         console.error(err);
@@ -29,7 +49,6 @@ export const getSellers = async ()=>{
         return {success: false, message: err?.message || "Something went wrong"}
     }
 }
-
 
 export const updateSellerProfile = async (sellerEmail, updatedData)=>{
     try {

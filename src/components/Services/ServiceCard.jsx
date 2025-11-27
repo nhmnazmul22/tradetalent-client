@@ -9,16 +9,17 @@ import Avatar from "@/assets/avater.png";
 import { Clock, Eye, Heart, ShoppingBasket, StarIcon } from "lucide-react";
 import { Separator } from "../ui/separator";
 import { Link } from "react-router";
-import useAuth from "@/hooks/useAuth.jsx";
 
 const ServiceCard = ({service}) => {
+
+
 
     return (
     <Card className="border p-4 sm:p-0 flex flex-col sm:flex-row group">
       <figure className="w-full sm:max-w-[220px] max-sm:h-[300px] rounded-xl sm:rounded-l-xl overflow-hidden relative">
         <img
-          src={service?.image || "https://via.placeholder.com/300x200"}
-          alt={service.title}
+          src={service?.image || "https://placehold.co/600x400"}
+          alt={service.title || "N/A"}
           className="w-full h-full object-cover group-hover:scale-110 transition-all duration-300"
         />
           {service.featured && (
@@ -31,8 +32,8 @@ const ServiceCard = ({service}) => {
         <CardHeader className="p-0">
           <div className="flex justify-between items-center w-full">
             <div className="flex gap-2 items-center">
-              <img src={Avatar} alt="avatar" className="w-8 h-8 rounded-full" />
-              <p className="text-base font-semibold">Mr. Khan mia</p>
+              <img src={service.avater || "https://placehold.co/600x400"} alt="avatar" className="w-8 h-8 rounded-full" />
+              <p className="text-base font-semibold">{service?.sellerName}</p>
             </div>
             <button className="cursor-pointer">
               <Heart></Heart>
@@ -40,9 +41,9 @@ const ServiceCard = ({service}) => {
           </div>
         </CardHeader>
         <CardContent className="p-0 mt-2">
-          <Link to="/services/1">
+          <Link to={`/services/${service?._id}`}>
             <h4 className="text-lg sm:text-xl font-medium group-hover:text-blue-500 transition-all duration-300">
-                {service?.title}
+                {service?.title || "N/A"}
             </h4>
           </Link>
           <div className="flex max-sm:flex-col gap-1 sm:items-center mt-3">
@@ -79,13 +80,13 @@ const ServiceCard = ({service}) => {
         </CardContent>
         <CardFooter className="p-0 flex justify-between items-center mt-10">
           <p className="text-base">
-            From <span className="text-lg font-semibold">$55</span>
+            From <span className="text-lg font-semibold">${service?.price || 0}</span>
           </p>
           <p className="text-base flex gap-2 items-center">
             <span>
               <Clock size={20}></Clock>
             </span>
-            <span>2 Week</span>
+            <span>{service?.deliveryDays|| 0} Days</span>
           </p>
         </CardFooter>
       </div>

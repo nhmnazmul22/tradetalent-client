@@ -6,14 +6,21 @@ import Sellers from "@/components/Sellers/Sellers";
 import Services from "@/components/Services/Services";
 import LogoSlider from "@/components/Sliders/LogoSlider";
 import ServicesSlider from "@/components/Sliders/ServicesSlider";
-import React from "react";
+import React, {use} from "react";
 import { Link } from "react-router";
-import { motion } from "motion/react";
 import Testimonial from "@/components/Testimonial/Testimonial";
 import Blogs from "@/components/Blogs/Blogs";
+import {getFeaturedServices} from "@/Services/services.js";
+import {getTopSellerProfile} from "@/Services/sellerProfile.js";
+
+const featuredServicePromise = getFeaturedServices();
+const sellerPromise = getTopSellerProfile();
 
 const HomePage = () => {
-  return (
+      const serviceResult = use(featuredServicePromise);
+      const sellerResult = use(sellerPromise);
+
+    return (
     <>
       <Hero></Hero>
       <Section className="py-10! overflow-hidden">
@@ -40,7 +47,7 @@ const HomePage = () => {
             subtitle="Over 1200+ expect freelancers are waiting for you"
           ></SectionHeading>
           <div className="mt-10">
-            <Sellers></Sellers>
+            <Sellers sellers={sellerResult.data}></Sellers>
           </div>
           <div className="mt-10 text-center">
             <Link
@@ -66,7 +73,7 @@ const HomePage = () => {
               subtitle="Explore the best services that suit you"
             ></SectionHeading>
             <div className="mt-10">
-              <Services></Services>
+              <Services services={serviceResult.data}></Services>
             </div>
             <div className="mt-10 text-center">
               <Link
