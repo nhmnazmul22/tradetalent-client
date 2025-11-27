@@ -3,11 +3,13 @@ import Avater from "@/assets/avater.png";
 import { Separator } from "../ui/separator";
 import { Link } from "react-router";
 
-const BlogCard = () => {
-  return (
+const BlogCard = ({blog}) => {
+
+
+    return (
     <div className="p-2">
       <figure className="w-full h-[300px] rounded-lg overflow-hidden">
-        <img src={Avater} alt="Avater" className="w-full h-full object-cover" />
+        <img src={blog.image} alt={blog.title} className="w-full h-full object-cover" />
       </figure>
       <div className="p-2 mt-3">
         <div className="flex gap-2 items-center text-base">
@@ -18,11 +20,11 @@ const BlogCard = () => {
             orientation="vertical"
             className="border-3 rounded-full border-blue-500"
           />
-          <p>July 10, 2024</p>
+          <p>{blog.publishedAt}</p>
         </div>
-        <Link>
+        <Link to="/">
           <h2 className="text-xl font-semibold mt-2  hover:text-blue-500 transition-all duration-300">
-            20 Companies with Location-Agnostic Pay in 2024
+              {blog.title}
           </h2>
         </Link>
       </div>
