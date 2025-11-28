@@ -13,9 +13,8 @@ import {getSellerServices} from "@/Services/services.js";
 
 
 
-const ProfilePage = () => {
+const SellerProfilePage = () => {
     const result = useLoaderData();
-
     const [services, setServices] = useState([]);
 
     useEffect(() => {
@@ -88,4 +87,4 @@ const ProfilePage = () => {
     );
 };
 
-export default ProfilePage;
+export default SellerProfilePage;

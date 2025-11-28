@@ -62,8 +62,8 @@ const SellersCart = ({seller}) => {
                         <span className="text-base"> {seller?.language || "N/A"}</span>
                     </p>
                     <div className="flex flex-wrap gap-2 items-center justify-center mt-2">
-                        {seller?.skills.map((skill) => (
-                            <Badge>{`${skill[0].toUpperCase()}${skill.slice(1)}`}</Badge>
+                        {seller?.skills.map((skill, index) => (
+                            <Badge key={index}>{`${skill[0].toUpperCase()}${skill.slice(1)}`}</Badge>
                         ))}
                     </div>
                 </CardContent>

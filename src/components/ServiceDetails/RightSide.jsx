@@ -4,13 +4,15 @@ import { motion } from "motion/react";
 import { fadeInUp, staggerContainer } from "@/lib/motionVariants";
 
 const RightSide = ({ service }) => {
+
+
   return (
     <motion.aside
       variants={staggerContainer}
       initial="start"
       whileInView="end"
       viewport={{ once: true }}
-      className="space-y-6"
+      className="space-y-6 w-full"
     >
       <div className="bg-white dark:bg-neutral-900 shadow dark:shadow-neutral-800 rounded-lg p-6">
         {/* Top Section */}

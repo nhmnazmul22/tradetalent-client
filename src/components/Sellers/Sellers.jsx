@@ -13,8 +13,8 @@ const Sellers = ({sellers}) => {
       className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 max-w-7xl mx-auto"
     >
         {sellers && sellers.length > 0 && sellers.map((seller)=>(
-            <motion.div variants={fadeInUp}>
-                <SellersCart seller={seller}></SellersCart>
+            <motion.div key={seller._id} variants={fadeInUp}>
+                <SellersCart  seller={seller}></SellersCart>
             </motion.div>
         ))}
     </motion.div>

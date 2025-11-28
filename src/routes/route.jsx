@@ -19,6 +19,7 @@ import MyOrderPage from "@/pages/MyOrders";
 import {getServiceById} from "@/Services/services.js";
 import {getSellerProfileById} from "@/Services/sellerProfile.js";
 import ProfilePage from "@/pages/Profile/index.jsx";
+import UpdateServicePage from "@/pages/UpdateService/index.jsx";
 
 const router = createBrowserRouter([
     {
@@ -81,6 +82,14 @@ const router = createBrowserRouter([
                 element: (
                     <PrivateRoute>
                         <CreateServicePage></CreateServicePage>
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: "update-service",
+                element: (
+                    <PrivateRoute>
+                        <UpdateServicePage></UpdateServicePage>
                     </PrivateRoute>
                 ),
             },

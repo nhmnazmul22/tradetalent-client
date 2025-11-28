@@ -1,70 +1,79 @@
 import React from "react";
 import InputBox from "@/components/common/InputBox";
-import { Label } from "@/components/ui/label";
+import {Label} from "@/components/ui/label";
 
-const PricingCard = ({ title, prefix }) => {
-  return (
-    <div className="border border-neutral-300 rounded-lg p-4 shadow-sm bg-white dark:bg-neutral-900">
-      <h3 className="font-medium text-lg mb-3">{title}</h3>
+const PricingCard = ({tier, pricing, handleChange}) => {
+    return (
+        <div className="border border-neutral-300 rounded-lg p-4 shadow-sm bg-white dark:bg-neutral-900">
+            <h3 className="font-medium text-lg mb-3 capitalize">{tier} Package</h3>
 
-      <InputBox
-        label="Title"
-        name={`${prefix}Title`}
-        placeholder="Starter Website"
-        isRequired
-      />
+            <InputBox
+                label="Title"
+                name={`${tier}Title`}
+                value={pricing.title}
+                onChange={e => handleChange(tier, "title", e.target.value)}
+                isRequired
+                placeholder="Starter Website"/>
 
-      <Label className="mt-3 mb-1 block">Description</Label>
-      <textarea
-        name={`${prefix}Description`}
-        className="w-full p-2 border border-neutral-200 rounded-md min-h-20"
-        placeholder="Package description"
-      />
+            <Label className="mt-3">Description</Label>
+            <textarea
+                name={`${tier}Description`}
+                value={pricing.description}
+                onChange={e => handleChange(tier, "description", e.target.value)}
+                placeholder="Package description"
+                className="w-full p-2 border border-neutral-200 rounded-md min-h-[60px]"
+            />
 
-      <InputBox
-        label="Price (USD)"
-        name={`${prefix}Price`}
-        type="number"
-        placeholder="100"
-        isRequired
-      />
-      <InputBox
-        label="Delivery Days"
-        name={`${prefix}Delivery`}
-        type="number"
-        placeholder="2"
-        isRequired
-      />
-      <InputBox
-        label="Revisions"
-        name={`${prefix}Revisions`}
-        type="number"
-        placeholder="1"
-      />
+            <InputBox
+                label="Price (USD)"
+                name={`${tier}Price`}
+                type="number"
+                value={pricing.price}
+                onChange={e => handleChange(tier, "price", e.target.value)}
+                isRequired
+                placeholder="100"/>
 
-      {/* Pages */}
-      <InputBox
-        label="Included Pages"
-        name={`${prefix}Pages`}
-        placeholder="1"
-      />
+            <InputBox
+                label="Delivery Days"
+                name={`${tier}Delivery`}
+                type="number"
+                value={pricing.deliveryDays}
+                onChange={e => handleChange(tier, "deliveryDays", e.target.value)}
+                isRequired
+                placeholder="2"/>
 
-      {/* Support */}
-      <InputBox
-        label="Support Days"
-        name={`${prefix}Support`}
-        placeholder="7"
-      />
+            <InputBox
+                label="Revisions"
+                name={`${tier}Revisions`}
+                type="number"
+                value={pricing.revisions}
+                onChange={e => handleChange(tier, "revisions", e.target.value)}
+                placeholder="1"/>
 
-      {/* Features */}
-      <Label className="mt-3 mb-1 block">Features (comma separated)</Label>
-      <textarea
-        name={`${prefix}Features`}
-        className="w-full p-2 border border-neutral-200 rounded-md min-h-[60px]"
-        placeholder="Mobile responsive, SEO optimized..."
-      />
-    </div>
-  );
+            <InputBox
+                label="Included Pages"
+                name={`${tier}Pages`}
+                value={pricing.includedPages}
+                onChange={e => handleChange(tier, "includedPages", e.target.value)}
+                placeholder="1"/>
+
+            <InputBox
+                label="Support Days"
+                name={`${tier}Support`}
+                value={pricing.supportDays}
+                onChange={e => handleChange(tier, "supportDays", e.target.value)}
+                placeholder="7"/>
+
+            <Label className="mt-3">Features (comma separated)</Label>
+            <textarea
+                name={`${tier}Features`}
+                value={pricing.features}
+                onChange={e => handleChange(tier, "features", e.target.value)}
+                placeholder="Mobile responsive, SEO optimized..."
+                className="w-full p-2 border border-neutral-200 rounded-md min-h-[60px]"
+            />
+        </div>
+    );
 };
 
 export default PricingCard;
