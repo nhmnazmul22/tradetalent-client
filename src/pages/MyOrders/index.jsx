@@ -23,14 +23,13 @@ const OrderTable = () => {
                 setResult(data)
             }
         }
-
         getOrderResult();
     }, [user.email]);
 
 
 
   return (
-    <Section>
+    <Section className="min-h-screen">
       <div className="main-container">
         <h2 className="text-xl font-semibold mb-4">My Orders</h2>
         <Table>
@@ -47,9 +46,9 @@ const OrderTable = () => {
           </TableHeader>
 
           <TableBody>
-            {result?.data.length > 0 ? (
-                result?.data.map((order) => (
-                <OrderTableRow key={order.id} order={order} />
+            {result?.data?.length > 0 ? (
+                result?.data?.map((order) => (
+                <OrderTableRow key={order._id} order={order} setResult={setResult}/>
               ))
             ) : (
               <tr>

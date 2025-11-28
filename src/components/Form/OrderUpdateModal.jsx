@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import {
     Dialog,
     DialogContent,
@@ -10,14 +10,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import toast from "react-hot-toast";
-import {createOrder} from "@/Services/orderServices.js";
-import useAuth from "@/hooks/useAuth.jsx";
+import CustomSelect from "@/components/common/CustomSelect.jsx";
 
-export default function OrderCreateModal({ open, setOpen }) {
-    const [loading, setLoading] = useState(false);
-    const {user} = useAuth();
-
+export default function OrderUpdateModal({ open, setOpen, order, handelSubmit, loading }) {
     const [form, setForm] = useState({
         buyerName: "",
         buyerEmail: "",
@@ -32,32 +27,21 @@ export default function OrderCreateModal({ open, setOpen }) {
         setForm((prev) => ({ ...prev, [field]: value }));
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
+    useEffect(() => {
+        if(order){
+            setForm({
+                buyerName: order.buyerName || "",
+                buyerEmail: order.buyerEmail || "",
+                sellerEmail: order.sellerEmail || "",
+                serviceTitle: order.serviceTitle || "",
+                requirements: order.requirements || "",
+                amount: order.amount || "",
+                status: order.status || "pending",
+                deliveryDays: order.deliveryDays || 0,
+            })
+        }
+    }, [order]);
 
-       try{
-           const response = await createOrder({...form, sellerEmail: user?.email});
-           if(response.success){
-               toast.success("Order created successfully!");
-               setForm({
-                   buyerName: "",
-                   buyerEmail: "",
-                   sellerEmail: "",
-                   serviceTitle: "",
-                   requirements: "",
-                   amount: "",
-                   status: "pending",
-                   deliveryDays: 3,
-               });
-           }
-       }finally {
-           setLoading(false);
-           setOpen(false);
-       }
-
-
-    };
 
     return (
         <Dialog open={open} onOpenChange={setOpen}>
@@ -68,7 +52,7 @@ export default function OrderCreateModal({ open, setOpen }) {
                     </DialogTitle>
                 </DialogHeader>
 
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={(e)=> handelSubmit(e, form)} className="space-y-4">
                     {/* Buyer Name */}
                     <div className="space-y-1">
                         <Label>Name</Label>
@@ -133,12 +117,30 @@ export default function OrderCreateModal({ open, setOpen }) {
                         />
                     </div>
 
+                    {/* Status */}
+                    <div className="space-y-1 w-full">
+                        <Label>Order Status</Label>
+                        <CustomSelect
+                            value={form.status}
+                            onChange={(val) => handleChange("status", val)}
+                            placeholder="Select status"
+                            options={[
+                                { value: "pending", label: "Pending" },
+                                { value: "processing", label: "Processing" },
+                                { value: "delivered", label: "Delivered" },
+                                { value: "revision", label: "Revision" },
+                                { value: "cancelled", label: "Cancelled" },
+                            ]}
+                        />
+                    </div>
+
+
                     <DialogFooter className="mt-4">
                         <Button type="button" variant="outline" onClick={() => setOpen(false)}>
                             Cancel
                         </Button>
                         <Button disabled={loading} type="submit">
-                            {loading ? "Creating..." : "Create Order"}
+                            {loading ? "Updating..." : "Update Order"}
                         </Button>
                     </DialogFooter>
                 </form>
