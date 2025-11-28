@@ -11,7 +11,7 @@ const LeftSide = ({ service, seller }) => {
       initial="start"
       whileInView="end"
       viewport={{ once: true }}
-      className="lg:col-span-2 space-y-6"
+      className="w-full space-y-6"
     >
       <div className="bg-white dark:bg-neutral-900 shadow dark:shadow-neutral-800 rounded-lg overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 p-6">

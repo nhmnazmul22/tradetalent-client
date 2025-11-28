@@ -16,9 +16,9 @@ const ServiceCard = ({service}) => {
 
     return (
     <Card className="border p-4 sm:p-0 flex flex-col sm:flex-row group">
-      <figure className="w-full sm:max-w-[220px] max-sm:h-[300px] rounded-xl sm:rounded-l-xl overflow-hidden relative">
+      <figure className="w-full sm:max-w-[240px] max-sm:h-[300px] rounded-xl sm:rounded-l-xl overflow-hidden relative">
         <img
-          src={service?.image || "https://placehold.co/600x400"}
+          src={service.images || "https://placehold.co/600x400"}
           alt={service.title || "N/A"}
           className="w-full h-full object-cover group-hover:scale-110 transition-all duration-300"
         />

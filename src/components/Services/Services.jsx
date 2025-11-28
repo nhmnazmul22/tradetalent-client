@@ -12,7 +12,7 @@ const Services = ({ services, className }) => {
       className={`grid lg:grid-cols-2 gap-y-5 sm:gap-5 items-center max-w-7xl mx-auto ${className}`}
     >
         {services && services.length > 0 ? services.map((service) => (
-            <motion.div variants={fadeInUp}>
+            <motion.div key={service._id} variants={fadeInUp}>
                 <ServiceCard service={service}></ServiceCard>
             </motion.div>
         )): <p>No services available.</p>}

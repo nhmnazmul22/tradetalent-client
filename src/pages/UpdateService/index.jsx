@@ -1,24 +1,23 @@
-import React, { useState } from "react";
-import { motion } from "motion/react";
-import { staggerContainer } from "@/lib/motionVariants";
-import CreateServiceForm from "@/components/Form/ServiceForm.jsx";
+import React, {useEffect, useState} from "react";
+import {motion} from "motion/react";
+import {staggerContainer} from "@/lib/motionVariants";
 import Section from "@/components/common/Section";
-import useAuthContext from "@/hooks/useAuth";
+import {getServiceById, updateService} from "@/Services/services.js";
+import {useNavigate, useSearchParams} from "react-router";
 import toast from "react-hot-toast";
-import { useNavigate, } from "react-router";
-import {createService} from "@/Services/services.js";
+import ServiceForm from "@/components/Form/ServiceForm.jsx";
 
-const CreateServicePage = () => {
-    const { user } = useAuthContext();
-    const navigate = useNavigate();
+const UpdateServicePage = () => {
     const [loading, setLoading] = useState(false);
+    const [service, setService] = useState(null);
+    const [searchParams] = useSearchParams()
+    const navigate = useNavigate();
 
-    const handleCreateService = async (e, form) => {
+    const handleUpdateService = async (e, form) => {
         e.preventDefault();
         setLoading(true);
         try {
             const payload = {
-                sellerEmail: user?.email,
                 title: form.title,
                 description: form.description,
                 category: form.category,
@@ -68,10 +67,10 @@ const CreateServicePage = () => {
                     },
                 },
             };
-            const response = await createService(payload);
+            const response = await updateService(service?._id, payload);
 
             if (response.success) {
-                toast.success(`Service created successfully!`);
+                toast.success(`Service updated successfully!`);
                 navigate("/services");
             }
         } finally {
@@ -79,16 +78,34 @@ const CreateServicePage = () => {
         }
     };
 
+
+    useEffect(() => {
+        const fetchService = async () => {
+            const serviceId = searchParams.get("edit");
+            const result = await getServiceById(serviceId);
+            if (result.success) {
+                setService(result.data);
+            }
+        }
+        fetchService();
+    }, [searchParams]);
+
     return (
-        <Section className="pt-10">
-            <motion.div className="main-container" variants={staggerContainer} initial="start" animate="end">
-                <CreateServiceForm
-                    handleSubmit={handleCreateService}
+        <Section className="pt-10 ">
+            <motion.div
+                className="main-container "
+                variants={staggerContainer}
+                initial="start"
+                animate="end"
+            >
+                <ServiceForm
+                    handleSubmit={handleUpdateService}
                     loading={loading}
+                    service={service}
                 />
             </motion.div>
         </Section>
     );
 };
 
-export default CreateServicePage;
+export default UpdateServicePage;
