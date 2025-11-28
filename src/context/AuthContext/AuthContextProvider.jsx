@@ -44,10 +44,10 @@ const AuthContextProvider = ({children}) => {
     useEffect(() => {
         setLoading(true);
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            console.log(currentUser);
             if (currentUser) {
                 setUser(currentUser);
             }
+            localStorage.setItem("accessToken", currentUser.accessToken)
             setLoading(false);
         });
 
