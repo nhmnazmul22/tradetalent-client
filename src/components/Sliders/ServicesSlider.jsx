@@ -8,7 +8,7 @@ import {
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import Autoplay from "embla-carousel-autoplay";
-import { fadeIn, fadeInUp, staggerContainer } from "@/lib/motionVariants";
+import { fadeInUp, staggerContainer } from "@/lib/motionVariants";
 import { services } from "@/constant";
 
 const ServicesSlider = () => {

@@ -5,7 +5,6 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import Avatar from "@/assets/avater.png";
 import { Clock, Eye, Heart, ShoppingBasket, StarIcon } from "lucide-react";
 import { Separator } from "../ui/separator";
 import { Link } from "react-router";

@@ -10,12 +10,6 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
@@ -24,7 +18,7 @@ import {
 import Logo from "../common/Logo";
 import { menuItems } from "@/constant";
 import { Link, NavLink } from "react-router";
-import { ChevronDown, ChevronUp, Settings } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import Button from "../common/Button";
 import useAuth from "@/hooks/useAuth.jsx";
 

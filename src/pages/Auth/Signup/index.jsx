@@ -37,7 +37,7 @@ const Signup = () => {
         return;
       }
 
-      const response = await createUser(data.email, data.password);
+      await createUser(data.email, data.password);
 
       // Updated The user
       if (data.photoURL || data.firstName) {

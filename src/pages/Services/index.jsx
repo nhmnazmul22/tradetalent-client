@@ -4,7 +4,6 @@ import SortingFilter from "@/components/Filters/SortingFilter";
 import Services from "@/components/Services/Services";
 import React, {useEffect, useState} from "react";
 import {getServices} from "@/Services/services.js";
-import serviceCard from "@/components/Services/ServiceCard.jsx";
 import {Spinner} from "@/components/ui/spinner.jsx";
 
 
