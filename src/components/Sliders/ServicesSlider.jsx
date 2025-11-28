@@ -34,7 +34,7 @@ const ServicesSlider = () => {
               className="basis-1/1 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6 h-[220px]"
             >
               <motion.div variants={fadeInUp}>
-                <Link className="p-1">
+                <Link to="/" className="p-1">
                   <Card className="hover:shadow-lg transition-all duration-300 border-0 dark:bg-black dark:hover:ring-1 dark:ring-blue-500 max-sm:text-center">
                     <CardContent className="p-4">
                       <span className="inline-block bg-blue-50/50 dark:bg-transparent rounded-full mb-3 text-gray-800 dark:text-gray-200">

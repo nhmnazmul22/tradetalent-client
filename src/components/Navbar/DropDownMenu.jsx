@@ -34,8 +34,8 @@ const DropDownMenu = () => {
       <DropdownMenuContent className="relative z-999">
         <DropdownMenuLabel>{user?.displayName}</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        {userMenu.map((menu) => (
-          <DropdownMenuItem>
+        {userMenu.map((menu, index) => (
+          <DropdownMenuItem key={index}>
             <Link to={menu.href} className="flex gap-2 items-center">
               <span>
                 <menu.icon size={18} />

@@ -4,9 +4,13 @@ import { motion } from "motion/react";
 import { fadeInUp, staggerContainer } from "@/lib/motionVariants";
 import SearchFilter from "../Filters/SearchFilter";
 import { Link } from "react-router";
+import useAuth from "@/hooks/useAuth.jsx";
 
 const Hero = () => {
-  return (
+    const {user}  = useAuth()
+
+
+    return (
     <section className="px-4">
       <div
         className={`relative main-container mt-5 rounded-2xl min-h-[80vh] h-full bg-[url(/images/hero-bg.jpg)] bg-center bg-cover bg-no-repeat bg-blend-soft-light scale-x-[-1] flex justify-center items-center text-center`}
@@ -41,21 +45,23 @@ const Hero = () => {
             <motion.div variants={fadeInUp} transition={{ duration: 0.6 }}>
               <SearchFilter></SearchFilter>
             </motion.div>
-            <motion.div
-              variants={fadeInUp}
-              transition={{ duration: 0.6 }}
-              className="flex max-sm:flex-col gap-y-4 sm:gap-4 mt-5 justify-center"
-            >
-              <Button className="px-8 py-6 text-base">Post a Job</Button>
-              <Link to="/auth/signin">
-                <Button
-                  className="px-8 py-6 text-white border-white text-base"
-                  variant="outline"
-                >
-                  Join as Freelancer
-                </Button>
-              </Link>
-            </motion.div>
+              {!user && (
+                  <motion.div
+                      variants={fadeInUp}
+                      transition={{ duration: 0.6 }}
+                      className="flex max-sm:flex-col gap-y-4 sm:gap-4 mt-5 justify-center"
+                  >
+                      <Button className="px-8 py-6 text-base">Post a Job</Button>
+                      <Link to="/auth/signin">
+                          <Button
+                              className="px-8 py-6 text-white border-white text-base"
+                              variant="outline"
+                          >
+                              Join as Freelancer
+                          </Button>
+                      </Link>
+                  </motion.div>
+              ) }
           </motion.div>
         </div>
       </div>
