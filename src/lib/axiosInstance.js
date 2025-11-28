@@ -1,4 +1,6 @@
 import axios from "axios";
+import {signOut} from "firebase/auth";
+import auth from "@/firebase/firebase.init.js";
 
 const axiosInstance = axios.create({
     baseURL: import.meta.env.VITE_API_BASE_URL || "https://tradetalent-server.vercel.app"
@@ -16,13 +18,14 @@ axiosInstance.interceptors.request.use((config) => {
 
 axiosInstance.interceptors.response.use(
     (response) => response,
-    (error) => {
+    (error)  => {
         const status = error?.response?.status;
 
         if (status === 401 || status === 403) {
-            console.log("Unauthorized! Logging out...");
-            localStorage.removeItem("accessToken");
-            window.location.href = "/auth/signin";
+            signOut(auth).then(()=>{
+                localStorage.removeItem("accessToken");
+                window.location.href = "/auth/signin";
+            })
         }
 
         return Promise.reject(error);
