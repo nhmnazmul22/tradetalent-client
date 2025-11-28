@@ -26,8 +26,12 @@ import { menuItems } from "@/constant";
 import { Link, NavLink } from "react-router";
 import { ChevronDown, ChevronUp, Settings } from "lucide-react";
 import Button from "../common/Button";
+import useAuth from "@/hooks/useAuth.jsx";
 
 function AppSidebar() {
+    const {user} = useAuth()
+
+
   return (
     <Sidebar className="z-999 lg:hidden">
       <SidebarHeader>
@@ -132,36 +136,18 @@ function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <div className="flex flex-col gap-2">
-              <Button variant="outline">Post a Job</Button>
-              <Button className="w-full">Join as Freelancer</Button>
-            </div>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <SidebarMenuButton className="items-center hidden">
-                  <Settings></Settings>
-                  Settings
-                  <ChevronUp className="ml-auto" />
-                </SidebarMenuButton>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent side="top" className="w-[260px] z-999">
-                <DropdownMenuItem>
-                  <span>Account</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <span>Billing</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <span>Sign out</span>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </SidebarMenuItem>
-        </SidebarMenu>
-      </SidebarFooter>
+        {!user && (
+            <SidebarFooter>
+                <SidebarMenu>
+                    <SidebarMenuItem>
+                        <div className="flex flex-col gap-2">
+                            <Button variant="outline">Post a Job</Button>
+                            <Button className="w-full">Join as Freelancer</Button>
+                        </div>
+                    </SidebarMenuItem>
+                </SidebarMenu>
+            </SidebarFooter>
+        )}
     </Sidebar>
   );
 }
