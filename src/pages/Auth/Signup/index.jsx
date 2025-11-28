@@ -65,9 +65,7 @@ const Signup = () => {
       e.target.reset();
       toast.success("Registration successful. Please, Login now");
       navigate(location.state || "/auth/signin");
-      console.log("Account created successfully", response.user);
     } catch (err) {
-      console.error("Signup error:", err);
       toast.error(err?.message || "Something went wrong")
     } finally {
       setLoading(false);
