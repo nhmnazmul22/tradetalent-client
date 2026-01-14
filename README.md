@@ -1,16 +1,42 @@
-# React + Vite
+# 📌 TradeTalent — Freelancing Marketplace
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+TradeTalent is a simple and user-friendly freelancing marketplace web app where clients can post jobs/tasks and freelancers can browse and apply for them. It's built with modern frontend technologies and deployed live so users can explore it right now!
 
-Currently, two official plugins are available:
+🔗 **Live Demo:** [https://tradetalent-76cb3.web.app/](https://tradetalent-76cb3.web.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🧠 About
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+TradeTalent aims to connect freelancers with clients in a clean and intuitive way — inspired by platforms like Fiverr and Upwork. Users can register, browse available jobs, and offer freelance services. The focus is on simplicity, responsiveness, and usability.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Features
+
+### ⭐ Core Client Features
+
+- 🌐 **Browse Jobs** — View a list of posted freelance jobs (tasks).
+- 📄 **Job Details** — Click into jobs to see full description and details.
+- 👤 **User Registration** — Sign up and log in (if implemented).
+- 📌 **Responsive UI** — Works well on mobile and desktop screens.
+
+---
+
+## 🛠️ Tech Stack
+
+TradeTalent was built using:
+
+- **Frontend:** React
+- **Styling:** Tailwind CSS
+- **Hosting:** Firebase Hosting
+- **Authentication & DB:** Firebase and Mogodb
+- **Deployment:** Firebase
+
+---
+
+This project is licensed under the MIT License.
+
+---
+
+*If you want, I can tailor this even more precisely to what your site actually does (like if it has posting jobs, auth, backend integration, etc.) — just tell me what features you've implemented so far!*
